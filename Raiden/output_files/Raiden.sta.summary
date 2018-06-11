@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'DeBounce:instance_DeBounce|DB_out'
+Slack : -123.214
+TNS   : -2952.764
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -2.789
+TNS   : -22.992
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'DeBounce:instance_DeBounce|DB_out'
+Slack : 1.464
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -20.990
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DeBounce:instance_DeBounce|DB_out'
+Slack : -1.285
+TNS   : -169.620
+
+Type  : Slow 1200mV 0C Model Setup 'DeBounce:instance_DeBounce|DB_out'
+Slack : -111.084
+TNS   : -2683.758
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -2.498
+TNS   : -19.749
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'DeBounce:instance_DeBounce|DB_out'
+Slack : 1.329
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -20.990
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DeBounce:instance_DeBounce|DB_out'
+Slack : -1.285
+TNS   : -169.620
+
+Type  : Fast 1200mV 0C Model Setup 'DeBounce:instance_DeBounce|DB_out'
+Slack : -60.336
+TNS   : -1418.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -0.998
+TNS   : -4.863
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'DeBounce:instance_DeBounce|DB_out'
+Slack : 0.666
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -17.863
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DeBounce:instance_DeBounce|DB_out'
+Slack : -1.000
+TNS   : -132.000
+
+------------------------------------------------------------

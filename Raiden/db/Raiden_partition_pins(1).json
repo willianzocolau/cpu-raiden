@@ -1,0 +1,177 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "outmuxPC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "outmuxPC[1]",
+					"strict" : false
+				},
+				{
+					"name" : "outmuxPC[2]",
+					"strict" : false
+				},
+				{
+					"name" : "outmuxPC[3]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidade[0]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidade[1]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidade[2]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidade[3]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidade[4]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidade[5]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidade[6]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezena[0]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezena[1]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezena[2]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezena[3]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezena[4]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezena[5]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezena[6]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidadeInput[0]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidadeInput[1]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidadeInput[2]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidadeInput[3]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidadeInput[4]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidadeInput[5]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayUnidadeInput[6]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezenaInput[0]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezenaInput[1]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezenaInput[2]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezenaInput[3]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezenaInput[4]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezenaInput[5]",
+					"strict" : false
+				},
+				{
+					"name" : "outDisplayDezenaInput[6]",
+					"strict" : false
+				},
+				{
+					"name" : "keys[0]",
+					"strict" : false
+				},
+				{
+					"name" : "keys[1]",
+					"strict" : false
+				},
+				{
+					"name" : "keys[2]",
+					"strict" : false
+				},
+				{
+					"name" : "keys[3]",
+					"strict" : false
+				},
+				{
+					"name" : "keys[5]",
+					"strict" : false
+				},
+				{
+					"name" : "keys[4]",
+					"strict" : false
+				},
+				{
+					"name" : "processIn",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "btn_clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

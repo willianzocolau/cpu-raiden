@@ -1,0 +1,132 @@
+// Copyright (C) 2016  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Intel and sold by Intel or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "06/28/2017 17:17:17"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          Datapath
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module Datapath_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clock;
+reg [5:0] keys;
+reg processIn;
+// wires                                               
+wire [31:0] io;
+wire [31:0] outALU;
+wire [6:0] outDisplayDezena;
+wire [6:0] outDisplayDezenaInput;
+wire [6:0] outDisplayUnidade;
+wire [6:0] outDisplayUnidadeInput;
+wire [3:0] outmuxPC;
+wire [4:0] rd;
+wire [4:0] rs;
+wire [31:0] rsV;
+wire [31:0] rtV;
+wire [31:0] saidaMem;
+
+// assign statements (if any)                          
+Datapath i1 (
+// port map - connection between master ports and signals/registers   
+	.clock(clock),
+	.io(io),
+	.keys(keys),
+	.outALU(outALU),
+	.outDisplayDezena(outDisplayDezena),
+	.outDisplayDezenaInput(outDisplayDezenaInput),
+	.outDisplayUnidade(outDisplayUnidade),
+	.outDisplayUnidadeInput(outDisplayUnidadeInput),
+	.outmuxPC(outmuxPC),
+	.processIn(processIn),
+	.rd(rd),
+	.rs(rs),
+	.rsV(rsV),
+	.rtV(rtV),
+	.saidaMem(saidaMem)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+
+// clock
+initial
+begin
+	repeat(8)
+	begin
+		clock = 1'b0;
+		clock = #60000 1'b1;
+		# 60000;
+	end
+	clock = 1'b0;
+end 
+
+// processIn
+initial
+begin
+	processIn = 1'b1;
+	processIn = #60000 1'b0;
+	processIn = #60000 1'b1;
+	processIn = #60000 1'b0;
+end 
+// keys[ 5 ]
+initial
+begin
+	keys[5] = 1'b0;
+end 
+// keys[ 4 ]
+initial
+begin
+	keys[4] = 1'b0;
+end 
+// keys[ 3 ]
+initial
+begin
+	keys[3] = 1'b1;
+	keys[3] = #60000 1'b0;
+	keys[3] = #60000 1'b1;
+	keys[3] = #60000 1'b0;
+end 
+// keys[ 2 ]
+initial
+begin
+	keys[2] = 1'b0;
+end 
+// keys[ 1 ]
+initial
+begin
+	keys[1] = 1'b1;
+	keys[1] = #60000 1'b0;
+end 
+// keys[ 0 ]
+initial
+begin
+	keys[0] = 1'b1;
+	keys[0] = #60000 1'b0;
+	keys[0] = #60000 1'b1;
+	keys[0] = #60000 1'b0;
+end 
+endmodule
+

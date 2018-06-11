@@ -1,0 +1,1107 @@
+Analysis & Synthesis report for Raiden
+Sat Jul 01 16:08:52 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Registers Packed Into Inferred Megafunctions
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated
+ 14. Parameter Settings for User Entity Instance: DeBounce:instance_DeBounce
+ 15. Parameter Settings for User Entity Instance: InstructionMemory:instance_InstructionMemory
+ 16. Parameter Settings for Inferred Entity Instance: DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0
+ 17. Parameter Settings for Inferred Entity Instance: ALU:instance_ALU|lpm_divide:Mod0
+ 18. altsyncram Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "BinToBCD2:instance3_BinToBCD2"
+ 20. Port Connectivity Checks: "IO:instance_IO"
+ 21. Port Connectivity Checks: "InstructionMemory:instance_InstructionMemory"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jul 01 16:08:52 2017       ;
+; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                      ; Raiden                                      ;
+; Top-level Entity Name              ; Datapath                                    ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 1,671                                       ;
+;     Total combinational functions  ; 1,575                                       ;
+;     Dedicated logic registers      ; 146                                         ;
+; Total registers                    ; 146                                         ;
+; Total pins                         ; 42                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; Datapath           ; Raiden             ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                          ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------+---------+
+; invertSignal.v                   ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/invertSignal.v             ;         ;
+; display7.v                       ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/display7.v                 ;         ;
+; BinToBCD2.v                      ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/BinToBCD2.v                ;         ;
+; muxOperandOut.v                  ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/muxOperandOut.v            ;         ;
+; instructions.mif                 ; yes             ; User Memory Initialization File  ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/instructions.mif           ;         ;
+; RegisterBank.v                   ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/RegisterBank.v             ;         ;
+; muxRegisterBank.v                ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/muxRegisterBank.v          ;         ;
+; muxOperand2.v                    ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/muxOperand2.v              ;         ;
+; IO.v                             ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/IO.v                       ;         ;
+; InstructionMemory.v              ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/InstructionMemory.v        ;         ;
+; Datapath.v                       ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v                 ;         ;
+; DataMemory.v                     ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/DataMemory.v               ;         ;
+; ControlUnit.v                    ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/ControlUnit.v              ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/ALU.v                      ;         ;
+; DeBounce.v                       ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/DeBounce.v                 ;         ;
+; PC.v                             ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/PC.v                       ;         ;
+; Extender21Bits.v                 ; yes             ; User Verilog HDL File            ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Extender21Bits.v           ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf         ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/stratix_ram_block.inc  ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mux.inc            ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_decode.inc         ;         ;
+; aglobal161.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc         ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/a_rdenreg.inc          ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altrom.inc             ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altram.inc             ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altdpram.inc           ;         ;
+; db/altsyncram_mpc1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf     ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_divide.tdf         ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/abs_divider.inc        ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc    ;         ;
+; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/lpm_divide_kcm.tdf      ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction      ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/sign_div_unsign_9nh.tdf ;         ;
+; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction      ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/alt_u_div_6af.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction      ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction      ; C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/add_sub_8pc.tdf         ;         ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                     ;
++---------------------------------------------+-----------------------------------+
+; Resource                                    ; Usage                             ;
++---------------------------------------------+-----------------------------------+
+; Estimated Total logic elements              ; 1,671                             ;
+;                                             ;                                   ;
+; Total combinational functions               ; 1575                              ;
+; Logic element usage by number of LUT inputs ;                                   ;
+;     -- 4 input functions                    ; 807                               ;
+;     -- 3 input functions                    ; 665                               ;
+;     -- <=2 input functions                  ; 103                               ;
+;                                             ;                                   ;
+; Logic elements by mode                      ;                                   ;
+;     -- normal mode                          ; 971                               ;
+;     -- arithmetic mode                      ; 604                               ;
+;                                             ;                                   ;
+; Total registers                             ; 146                               ;
+;     -- Dedicated logic registers            ; 146                               ;
+;     -- I/O registers                        ; 0                                 ;
+;                                             ;                                   ;
+; I/O pins                                    ; 42                                ;
+;                                             ;                                   ;
+; Embedded Multiplier 9-bit elements          ; 0                                 ;
+;                                             ;                                   ;
+; Maximum fan-out node                        ; DeBounce:instance_DeBounce|DB_out ;
+; Maximum fan-out                             ; 133                               ;
+; Total fan-out                               ; 5875                              ;
+; Average fan-out                             ; 3.25                              ;
++---------------------------------------------+-----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                  ;
++---------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                              ; Entity Name         ; Library Name ;
++---------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |Datapath                                         ; 1575 (0)            ; 146 (0)                   ; 0           ; 0            ; 0       ; 0         ; 42   ; 0            ; |Datapath                                                                                                                                        ; Datapath            ; work         ;
+;    |ALU:instance_ALU|                             ; 1208 (118)          ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|ALU:instance_ALU                                                                                                                       ; ALU                 ; work         ;
+;       |lpm_divide:Mod0|                           ; 1090 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|ALU:instance_ALU|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_kcm:auto_generated|          ; 1090 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|ALU:instance_ALU|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                                         ; lpm_divide_kcm      ; work         ;
+;             |sign_div_unsign_9nh:divider|         ; 1090 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|ALU:instance_ALU|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_6af:divider|            ; 1090 (1089)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|ALU:instance_ALU|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
+;                   |add_sub_8pc:add_sub_1|         ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|ALU:instance_ALU|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;    |BinToBCD2:instance3_BinToBCD2|                ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|BinToBCD2:instance3_BinToBCD2                                                                                                          ; BinToBCD2           ; work         ;
+;    |BinToBCD2:instance_BinToBCD2|                 ; 24 (24)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|BinToBCD2:instance_BinToBCD2                                                                                                           ; BinToBCD2           ; work         ;
+;    |ControlUnit:instance_ControlUnit|             ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|ControlUnit:instance_ControlUnit                                                                                                       ; ControlUnit         ; work         ;
+;    |DeBounce:instance_DeBounce|                   ; 26 (26)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|DeBounce:instance_DeBounce                                                                                                             ; DeBounce            ; work         ;
+;    |IO:instance_IO|                               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|IO:instance_IO                                                                                                                         ; IO                  ; work         ;
+;    |InstructionMemory:instance_InstructionMemory| ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|InstructionMemory:instance_InstructionMemory                                                                                           ; InstructionMemory   ; work         ;
+;    |PC:instance_PC|                               ; 35 (35)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|PC:instance_PC                                                                                                                         ; PC                  ; work         ;
+;    |RegisterBank:instance_RegisterBank|           ; 78 (78)             ; 128 (128)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|RegisterBank:instance_RegisterBank                                                                                                     ; RegisterBank        ; work         ;
+;    |display7:instance1_display7|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|display7:instance1_display7                                                                                                            ; display7            ; work         ;
+;    |display7:instance2_display7|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|display7:instance2_display7                                                                                                            ; display7            ; work         ;
+;    |display7:instance4_display7|                  ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|display7:instance4_display7                                                                                                            ; display7            ; work         ;
+;    |display7:instance5_display7|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|display7:instance5_display7                                                                                                            ; display7            ; work         ;
+;    |muxOperand2:instance_muxOperand2|             ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|muxOperand2:instance_muxOperand2                                                                                                       ; muxOperand2         ; work         ;
+;    |muxOperandOut:instance_muxOperandOut|         ; 75 (75)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|muxOperandOut:instance_muxOperandOut                                                                                                   ; muxOperandOut       ; work         ;
+;    |muxRegisterBank:instance_muxRegisterBank|     ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Datapath|muxRegisterBank:instance_muxRegisterBank                                                                                               ; muxRegisterBank     ; work         ;
++---------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------+
+; Registers Removed During Synthesis                                    ;
++--------------------------------------------------+--------------------+
+; Register name                                    ; Reason for Removal ;
++--------------------------------------------------+--------------------+
+; RegisterBank:instance_RegisterBank|registers~128 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~129 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~130 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~131 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~132 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~133 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~134 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~135 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~136 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~137 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~138 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~139 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~140 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~141 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~142 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~143 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~144 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~145 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~146 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~147 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~148 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~149 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~150 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~151 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~152 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~153 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~154 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~155 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~156 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~157 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~158 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~159 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~160 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~161 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~162 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~163 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~164 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~165 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~166 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~167 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~168 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~169 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~170 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~171 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~172 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~173 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~174 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~175 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~176 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~177 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~178 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~179 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~180 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~181 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~182 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~183 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~184 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~185 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~186 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~187 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~188 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~189 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~190 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~191 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~192 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~193 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~194 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~195 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~196 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~197 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~198 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~199 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~200 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~201 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~202 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~203 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~204 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~205 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~206 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~207 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~208 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~209 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~210 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~211 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~212 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~213 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~214 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~215 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~216 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~217 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~218 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~219 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~220 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~221 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~222 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~223 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~224 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~225 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~226 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~227 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~228 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~229 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~230 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~231 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~232 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~233 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~234 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~235 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~236 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~237 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~238 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~239 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~240 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~241 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~242 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~243 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~244 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~245 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~246 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~247 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~248 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~249 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~250 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~251 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~252 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~253 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~254 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~255 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~256 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~257 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~258 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~259 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~260 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~261 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~262 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~263 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~264 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~265 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~266 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~267 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~268 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~269 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~270 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~271 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~272 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~273 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~274 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~275 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~276 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~277 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~278 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~279 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~280 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~281 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~282 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~283 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~284 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~285 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~286 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~287 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~288 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~289 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~290 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~291 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~292 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~293 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~294 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~295 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~296 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~297 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~298 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~299 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~300 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~301 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~302 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~303 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~304 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~305 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~306 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~307 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~308 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~309 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~310 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~311 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~312 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~313 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~314 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~315 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~316 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~317 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~318 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~319 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~320 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~321 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~322 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~323 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~324 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~325 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~326 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~327 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~328 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~329 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~330 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~331 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~332 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~333 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~334 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~335 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~336 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~337 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~338 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~339 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~340 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~341 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~342 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~343 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~344 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~345 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~346 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~347 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~348 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~349 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~350 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~351 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~352 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~353 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~354 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~355 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~356 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~357 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~358 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~359 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~360 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~361 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~362 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~363 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~364 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~365 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~366 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~367 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~368 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~369 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~370 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~371 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~372 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~373 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~374 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~375 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~376 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~377 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~378 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~379 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~380 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~381 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~382 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~383 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~384 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~385 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~386 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~387 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~388 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~389 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~390 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~391 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~392 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~393 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~394 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~395 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~396 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~397 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~398 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~399 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~400 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~401 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~402 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~403 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~404 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~405 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~406 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~407 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~408 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~409 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~410 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~411 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~412 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~413 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~414 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~415 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~416 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~417 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~418 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~419 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~420 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~421 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~422 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~423 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~424 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~425 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~426 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~427 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~428 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~429 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~430 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~431 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~432 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~433 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~434 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~435 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~436 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~437 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~438 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~439 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~440 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~441 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~442 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~443 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~444 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~445 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~446 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~447 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~448 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~449 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~450 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~451 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~452 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~453 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~454 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~455 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~456 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~457 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~458 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~459 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~460 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~461 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~462 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~463 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~464 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~465 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~466 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~467 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~468 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~469 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~470 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~471 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~472 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~473 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~474 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~475 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~476 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~477 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~478 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~479 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~480 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~481 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~482 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~483 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~484 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~485 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~486 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~487 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~488 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~489 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~490 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~491 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~492 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~493 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~494 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~495 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~496 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~497 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~498 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~499 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~500 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~501 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~502 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~503 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~504 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~505 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~506 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~507 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~508 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~509 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~510 ; Lost fanout        ;
+; RegisterBank:instance_RegisterBank|registers~511 ; Lost fanout        ;
+; PC:instance_PC|outPC[4..31]                      ; Lost fanout        ;
+; Total Number of Removed Registers = 412          ;                    ;
++--------------------------------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                   ;
++--------------------------+--------------------+-------------------------------------------------------------------------------+
+; Register name            ; Reason for Removal ; Registers Removed due to This Register                                        ;
++--------------------------+--------------------+-------------------------------------------------------------------------------+
+; PC:instance_PC|outPC[31] ; Lost Fanouts       ; PC:instance_PC|outPC[30], PC:instance_PC|outPC[29], PC:instance_PC|outPC[28], ;
+;                          ;                    ; PC:instance_PC|outPC[27], PC:instance_PC|outPC[26], PC:instance_PC|outPC[25], ;
+;                          ;                    ; PC:instance_PC|outPC[24], PC:instance_PC|outPC[23], PC:instance_PC|outPC[22], ;
+;                          ;                    ; PC:instance_PC|outPC[21], PC:instance_PC|outPC[20], PC:instance_PC|outPC[19], ;
+;                          ;                    ; PC:instance_PC|outPC[18], PC:instance_PC|outPC[17], PC:instance_PC|outPC[16], ;
+;                          ;                    ; PC:instance_PC|outPC[15], PC:instance_PC|outPC[14], PC:instance_PC|outPC[13], ;
+;                          ;                    ; PC:instance_PC|outPC[12], PC:instance_PC|outPC[11], PC:instance_PC|outPC[10], ;
+;                          ;                    ; PC:instance_PC|outPC[9], PC:instance_PC|outPC[8], PC:instance_PC|outPC[7],    ;
+;                          ;                    ; PC:instance_PC|outPC[6], PC:instance_PC|outPC[5], PC:instance_PC|outPC[4]     ;
++--------------------------+--------------------+-------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 146   ;
+; Number of registers using Synchronous Clear  ; 13    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 130   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                    ;
++-----------------------------------------------+------------------------------------------+------+
+; Register Name                                 ; Megafunction                             ; Type ;
++-----------------------------------------------+------------------------------------------+------+
+; DataMemory:instance_DataMemory|outRead[0..31] ; DataMemory:instance_DataMemory|Ram_rtl_0 ; RAM  ;
++-----------------------------------------------+------------------------------------------+------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; 10:1               ; 30 bits   ; 180 LEs       ; 60 LEs               ; 120 LEs                ; Yes        ; |Datapath|PC:instance_PC|outPC[25]                     ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Datapath|PC:instance_PC|outPC[0]                      ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Datapath|IO:instance_IO|out[3]                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Datapath|BinToBCD2:instance_BinToBCD2|Ones[3]         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Datapath|BinToBCD2:instance_BinToBCD2|Tens[2]         ;
+; 26:1               ; 6 bits    ; 102 LEs       ; 54 LEs               ; 48 LEs                 ; No         ; |Datapath|muxOperandOut:instance_muxOperandOut|out[21] ;
+; 26:1               ; 2 bits    ; 34 LEs        ; 20 LEs               ; 14 LEs                 ; No         ; |Datapath|muxOperandOut:instance_muxOperandOut|out[16] ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |Datapath|muxOperandOut:instance_muxOperandOut|out[12] ;
+; 26:1               ; 6 bits    ; 102 LEs       ; 54 LEs               ; 48 LEs                 ; No         ; |Datapath|muxOperandOut:instance_muxOperandOut|out[15] ;
+; 27:1               ; 4 bits    ; 72 LEs        ; 40 LEs               ; 32 LEs                 ; No         ; |Datapath|muxOperandOut:instance_muxOperandOut|out[26] ;
+; 27:1               ; 4 bits    ; 72 LEs        ; 40 LEs               ; 32 LEs                 ; No         ; |Datapath|muxOperandOut:instance_muxOperandOut|out[4]  ;
+; 28:1               ; 2 bits    ; 36 LEs        ; 22 LEs               ; 14 LEs                 ; No         ; |Datapath|muxOperandOut:instance_muxOperandOut|out[29] ;
+; 29:1               ; 2 bits    ; 38 LEs        ; 22 LEs               ; 16 LEs                 ; No         ; |Datapath|muxOperandOut:instance_muxOperandOut|out[30] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Source assignments for DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                          ;
++---------------------------------+--------------------+------+---------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                           ;
++---------------------------------+--------------------+------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DeBounce:instance_DeBounce ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 11    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: InstructionMemory:instance_InstructionMemory ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; tam            ; 8     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0 ;
++------------------------------------+----------------------+------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                     ;
++------------------------------------+----------------------+------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                  ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                           ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                  ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                  ;
+; WIDTH_A                            ; 32                   ; Untyped                                  ;
+; WIDTHAD_A                          ; 5                    ; Untyped                                  ;
+; NUMWORDS_A                         ; 32                   ; Untyped                                  ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                  ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                  ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                  ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; WIDTH_B                            ; 32                   ; Untyped                                  ;
+; WIDTHAD_B                          ; 5                    ; Untyped                                  ;
+; NUMWORDS_B                         ; 32                   ; Untyped                                  ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                  ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                  ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                  ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                  ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                  ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                  ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                  ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                  ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                  ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                  ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                  ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                  ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                  ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                  ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                  ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                  ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                  ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                  ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                  ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                  ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                  ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                  ;
+; CBXI_PARAMETER                     ; altsyncram_mpc1      ; Untyped                                  ;
++------------------------------------+----------------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ALU:instance_ALU|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                 ;
+; LPM_WIDTHD             ; 32             ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                ;
++-------------------------------------------+-----------------------------------------------------+
+; Name                                      ; Value                                               ;
++-------------------------------------------+-----------------------------------------------------+
+; Number of entity instances                ; 1                                                   ;
+; Entity Instance                           ; DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                           ;
+;     -- WIDTH_A                            ; 32                                                  ;
+;     -- NUMWORDS_A                         ; 32                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                        ;
+;     -- WIDTH_B                            ; 32                                                  ;
+;     -- NUMWORDS_B                         ; 32                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                           ;
++-------------------------------------------+-----------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BinToBCD2:instance3_BinToBCD2"                                                                                                                  ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary ; Input ; Warning  ; Input port expression (6 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "binary[7..6]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IO:instance_IO"                                                                                                                                     ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                           ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; entrada ; Input ; Warning  ; Input port expression (6 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "entrada[31..6]" will be connected to GND. ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "InstructionMemory:instance_InstructionMemory"                                                 ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; outInstruction ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 42                          ;
+; cycloneiii_ff         ; 146                         ;
+;     ENA               ; 128                         ;
+;     ENA SCLR          ; 2                           ;
+;     SCLR              ; 11                          ;
+;     plain             ; 5                           ;
+; cycloneiii_lcell_comb ; 1580                        ;
+;     arith             ; 604                         ;
+;         2 data inputs ; 16                          ;
+;         3 data inputs ; 588                         ;
+;     normal            ; 976                         ;
+;         0 data inputs ; 30                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 77                          ;
+;         4 data inputs ; 807                         ;
+;                       ;                             ;
+; Max LUT depth         ; 132.50                      ;
+; Average LUT depth     ; 103.29                      ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Sat Jul 01 16:08:29 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Raiden -c Raiden
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20032): Parallel compilation is enabled and will use up to 2 processors
+Info (12021): Found 1 design units, including 1 entities, in source file invertsignal.v
+    Info (12023): Found entity 1: invertSignal File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/invertSignal.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file display7.v
+    Info (12023): Found entity 1: display7 File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/display7.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bintobcd2.v
+    Info (12023): Found entity 1: BinToBCD2 File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/BinToBCD2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file muxoperandout.v
+    Info (12023): Found entity 1: muxOperandOut File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/muxOperandOut.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file registerbank.v
+    Info (12023): Found entity 1: RegisterBank File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/RegisterBank.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file muxregisterbank.v
+    Info (12023): Found entity 1: muxRegisterBank File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/muxRegisterBank.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file muxoperand2.v
+    Info (12023): Found entity 1: muxOperand2 File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/muxOperand2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file io.v
+    Info (12023): Found entity 1: IO File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/IO.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instructionmemory.v
+    Info (12023): Found entity 1: InstructionMemory File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/InstructionMemory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
+    Info (12023): Found entity 1: Datapath File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file datamemory.v
+    Info (12023): Found entity 1: DataMemory File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/DataMemory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
+    Info (12023): Found entity 1: ControlUnit File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/ControlUnit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: ALU File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/ALU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file debounce.v
+    Info (12023): Found entity 1: DeBounce File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/DeBounce.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file pc.v
+    Info (12023): Found entity 1: PC File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/PC.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file extender21bits.v
+    Info (12023): Found entity 1: Extender21Bits File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Extender21Bits.v Line: 1
+Info (12127): Elaborating entity "Datapath" for the top level hierarchy
+Info (12128): Elaborating entity "invertSignal" for hierarchy "invertSignal:instance_invertSignal" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 52
+Info (12128): Elaborating entity "DeBounce" for hierarchy "DeBounce:instance_DeBounce" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 60
+Warning (10230): Verilog HDL assignment warning at DeBounce.v(54): truncated value with size 32 to match size of target (11) File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/DeBounce.v Line: 54
+Info (12128): Elaborating entity "PC" for hierarchy "PC:instance_PC" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 71
+Info (12128): Elaborating entity "InstructionMemory" for hierarchy "InstructionMemory:instance_InstructionMemory" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 82
+Warning (10030): Net "InstrctionsMemory.data_a" at InstructionMemory.v(21) has no driver or initial value, using a default initial value '0' File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/InstructionMemory.v Line: 21
+Warning (10030): Net "InstrctionsMemory.waddr_a" at InstructionMemory.v(21) has no driver or initial value, using a default initial value '0' File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/InstructionMemory.v Line: 21
+Warning (10030): Net "InstrctionsMemory.we_a" at InstructionMemory.v(21) has no driver or initial value, using a default initial value '0' File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/InstructionMemory.v Line: 21
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:instance_ControlUnit" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 94
+Info (12128): Elaborating entity "RegisterBank" for hierarchy "RegisterBank:instance_RegisterBank" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 105
+Info (12128): Elaborating entity "Extender21Bits" for hierarchy "Extender21Bits:instance_Extender21Bits" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 110
+Info (12128): Elaborating entity "muxOperand2" for hierarchy "muxOperand2:instance_muxOperand2" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 117
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:instance_ALU" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 124
+Info (12128): Elaborating entity "muxOperandOut" for hierarchy "muxOperandOut:instance_muxOperandOut" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 132
+Info (12128): Elaborating entity "muxRegisterBank" for hierarchy "muxRegisterBank:instance_muxRegisterBank" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 140
+Info (12128): Elaborating entity "DataMemory" for hierarchy "DataMemory:instance_DataMemory" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 150
+Info (12128): Elaborating entity "IO" for hierarchy "IO:instance_IO" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 157
+Info (12128): Elaborating entity "BinToBCD2" for hierarchy "BinToBCD2:instance_BinToBCD2" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 163
+Warning (10230): Verilog HDL assignment warning at BinToBCD2.v(19): truncated value with size 32 to match size of target (4) File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/BinToBCD2.v Line: 19
+Warning (10230): Verilog HDL assignment warning at BinToBCD2.v(17): truncated value with size 32 to match size of target (4) File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/BinToBCD2.v Line: 17
+Info (12128): Elaborating entity "display7" for hierarchy "display7:instance1_display7" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/Datapath.v Line: 168
+Warning (276027): Inferred dual-clock RAM node "DataMemory:instance_DataMemory|Ram_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276004): RAM logic "InstructionMemory:instance_InstructionMemory|InstrctionsMemory" is uninferred due to inappropriate RAM size File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/InstructionMemory.v Line: 21
+    Info (276007): RAM logic "RegisterBank:instance_RegisterBank|registers" is uninferred due to asynchronous read logic File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/RegisterBank.v Line: 18
+Critical Warning (127005): Memory depth (16) in the design file differs from memory depth (9) in the Memory Initialization File "C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/Raiden.ram0_InstructionMemory_d1968ec4.hdl.mif" -- setting initial value for remaining addresses to 0
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "DataMemory:instance_DataMemory|Ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "ALU:instance_ALU|Mod0" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/ALU.v Line: 42
+Info (12130): Elaborated megafunction instantiation "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0"
+Info (12133): Instantiated megafunction "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_mpc1.tdf
+    Info (12023): Found entity 1: altsyncram_mpc1 File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "ALU:instance_ALU|lpm_divide:Mod0" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/ALU.v Line: 42
+Info (12133): Instantiated megafunction "ALU:instance_ALU|lpm_divide:Mod0" with the following parameter: File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/ALU.v Line: 42
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
+    Info (12023): Found entity 1: lpm_divide_kcm File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/lpm_divide_kcm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/sign_div_unsign_9nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
+    Info (12023): Found entity 1: alt_u_div_6af File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/alt_u_div_6af.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/add_sub_8pc.tdf Line: 23
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a0" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 39
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a1" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 69
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a2" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 99
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a3" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 129
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a4" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 159
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a5" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 189
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a6" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 219
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a7" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 249
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a8" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 279
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a9" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 309
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a10" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 339
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a11" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 369
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a12" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 399
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a13" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 429
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a14" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 459
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a15" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 489
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a16" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 519
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a17" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 549
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a18" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 579
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a19" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 609
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a20" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 639
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a21" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 669
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a22" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 699
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a23" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 729
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a24" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 759
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a25" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 789
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a26" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 819
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a27" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 849
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a28" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 879
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a29" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 909
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a30" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 939
+        Warning (14320): Synthesized away node "DataMemory:instance_DataMemory|altsyncram:Ram_rtl_0|altsyncram_mpc1:auto_generated|ram_block1a31" File: C:/Drive/Ensino/Unifesp/5 Termo/LAB AOC/SVN/Raiden/db/altsyncram_mpc1.tdf Line: 969
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 412 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1745 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 1703 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 44 warnings
+    Info: Peak virtual memory: 654 megabytes
+    Info: Processing ended: Sat Jul 01 16:08:52 2017
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:41
+
+

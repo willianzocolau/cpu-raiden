@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sat Jul 01 16:08:52 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : Raiden
+Top-level Entity Name : Datapath
+Family : Cyclone IV E
+Total logic elements : 1,671
+    Total combinational functions : 1,575
+    Dedicated logic registers : 146
+Total registers : 146
+Total pins : 42
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

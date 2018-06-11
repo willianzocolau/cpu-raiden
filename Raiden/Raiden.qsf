@@ -1,0 +1,115 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2016  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Intel and sold by Intel or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+# Date created = 11:10:53  April 28, 2017
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		Raiden_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY Datapath
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:10:53  APRIL 28, 2017"
+set_global_assignment -name LAST_QUARTUS_VERSION "16.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_location_assignment PIN_Y2 -to clk
+set_location_assignment PIN_M23 -to btn_clk
+set_location_assignment PIN_AB28 -to keys[0]
+set_location_assignment PIN_AC28 -to keys[1]
+set_location_assignment PIN_AC27 -to keys[2]
+set_location_assignment PIN_AD27 -to keys[3]
+set_location_assignment PIN_AB27 -to keys[4]
+set_location_assignment PIN_AC26 -to keys[5]
+set_location_assignment PIN_G18 -to outDisplayUnidade[0]
+set_location_assignment PIN_F22 -to outDisplayUnidade[1]
+set_location_assignment PIN_E17 -to outDisplayUnidade[2]
+set_location_assignment PIN_L26 -to outDisplayUnidade[3]
+set_location_assignment PIN_L25 -to outDisplayUnidade[4]
+set_location_assignment PIN_J22 -to outDisplayUnidade[5]
+set_location_assignment PIN_H22 -to outDisplayUnidade[6]
+set_location_assignment PIN_M24 -to outDisplayDezena[0]
+set_location_assignment PIN_Y22 -to outDisplayDezena[1]
+set_location_assignment PIN_W21 -to outDisplayDezena[2]
+set_location_assignment PIN_W22 -to outDisplayDezena[3]
+set_location_assignment PIN_W25 -to outDisplayDezena[4]
+set_location_assignment PIN_U23 -to outDisplayDezena[5]
+set_location_assignment PIN_U24 -to outDisplayDezena[6]
+set_location_assignment PIN_E21 -to outmuxPC[0]
+set_location_assignment PIN_E22 -to outmuxPC[1]
+set_location_assignment PIN_E25 -to outmuxPC[2]
+set_location_assignment PIN_E24 -to outmuxPC[3]
+set_location_assignment PIN_Y24 -to processIn
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_AB19 -to outDisplayUnidadeInput[0]
+set_location_assignment PIN_AA19 -to outDisplayUnidadeInput[1]
+set_location_assignment PIN_AG21 -to outDisplayUnidadeInput[2]
+set_location_assignment PIN_AH21 -to outDisplayUnidadeInput[3]
+set_location_assignment PIN_AE19 -to outDisplayUnidadeInput[4]
+set_location_assignment PIN_AF19 -to outDisplayUnidadeInput[5]
+set_location_assignment PIN_AE18 -to outDisplayUnidadeInput[6]
+set_location_assignment PIN_AH18 -to outDisplayDezenaInput[6]
+set_location_assignment PIN_AF18 -to outDisplayDezenaInput[5]
+set_location_assignment PIN_AG19 -to outDisplayDezenaInput[4]
+set_location_assignment PIN_AH19 -to outDisplayDezenaInput[3]
+set_location_assignment PIN_AB18 -to outDisplayDezenaInput[2]
+set_location_assignment PIN_AC18 -to outDisplayDezenaInput[1]
+set_location_assignment PIN_AD18 -to outDisplayDezenaInput[0]
+set_location_assignment PIN_Y23 -to reset
+set_global_assignment -name VERILOG_FILE invertSignal.v
+set_global_assignment -name VERILOG_FILE display7.v
+set_global_assignment -name VERILOG_FILE BinToBCD2.v
+set_global_assignment -name VERILOG_FILE muxOperandOut.v
+set_global_assignment -name MIF_FILE instructions.mif
+set_global_assignment -name VERILOG_FILE RegisterBank.v
+set_global_assignment -name VERILOG_FILE muxRegisterBank.v
+set_global_assignment -name VERILOG_FILE muxOperand2.v
+set_global_assignment -name VERILOG_FILE IO.v
+set_global_assignment -name VERILOG_FILE InstructionMemory.v
+set_global_assignment -name VERILOG_FILE Datapath.v
+set_global_assignment -name VERILOG_FILE DataMemory.v
+set_global_assignment -name VERILOG_FILE ControlUnit.v
+set_global_assignment -name VERILOG_FILE ALU.v
+set_global_assignment -name VERILOG_FILE DeBounce.v
+set_global_assignment -name VERILOG_FILE PC.v
+set_global_assignment -name VERILOG_FILE Extender21Bits.v
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
