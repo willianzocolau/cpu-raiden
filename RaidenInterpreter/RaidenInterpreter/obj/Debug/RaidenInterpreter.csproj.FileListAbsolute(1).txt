@@ -1,0 +1,6 @@
+C:\Drive\Ensino\Unifesp\5 Termo\LAB AOC\SVN\RaidenInterpreter\RaidenInterpreter\bin\Debug\RaidenInterpreter.exe.config
+C:\Drive\Ensino\Unifesp\5 Termo\LAB AOC\SVN\RaidenInterpreter\RaidenInterpreter\bin\Debug\RaidenInterpreter.exe
+C:\Drive\Ensino\Unifesp\5 Termo\LAB AOC\SVN\RaidenInterpreter\RaidenInterpreter\bin\Debug\RaidenInterpreter.pdb
+C:\Drive\Ensino\Unifesp\5 Termo\LAB AOC\SVN\RaidenInterpreter\RaidenInterpreter\obj\Debug\RaidenInterpreter.csprojResolveAssemblyReference.cache
+C:\Drive\Ensino\Unifesp\5 Termo\LAB AOC\SVN\RaidenInterpreter\RaidenInterpreter\obj\Debug\RaidenInterpreter.exe
+C:\Drive\Ensino\Unifesp\5 Termo\LAB AOC\SVN\RaidenInterpreter\RaidenInterpreter\obj\Debug\RaidenInterpreter.pdb
