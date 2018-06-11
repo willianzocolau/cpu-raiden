@@ -1,0 +1,31 @@
+Nope							 &	NOP							 &	Nenhuma operação					 &	000000 \\ \hline
+Adição							 &	ADD							 &	RD=RS+RT							 &	000001 \\ \hline
+Adição Imediato					 &	ADDI						 &	RD=RS+Im							 &	000010 \\ \hline
+Subtração						 &	SUB							 &	RD=RS-RT							 &	000011 \\ \hline
+Subtração Imediato				 &	SUBI						 &	RD=RS-Im							 &	000100 \\ \hline
+Multiplicação					 &	MUL							 &	RD=RS*RT							 &	000101 \\ \hline
+Divisão							 &	DIV							 &	RD=RS/RT							 &	000110 \\ \hline
+Resto							 &	MOD							 &	RD=RS%RT							 &	000111 \\ \hline
+And 							 &	AND							 &	RD=RS and RT						 &	001000 \\ \hline
+And Imediato					 &	ANDI						 &	RD=RS and Im						 &	001001 \\ \hline
+Or							  	 &	OR							 &	RD=RS or RT							 &	001010 \\ \hline
+Or Imediato						 &	ORI							 &	RD=RS or Im							 &	001011 \\ \hline
+Xor							 	 &	XOR							 &	RD=RS xor RT						 &	001100 \\ \hline
+Xor Imediato					 &	XORI						 &	RD=RS xor Im						 &	001101 \\ \hline
+Not 							 &	NOT							 &	RD=Not(RS)							 &	001110 \\ \hline
+Desloca Esquerda				 &	SHL							 &	RD=RS<<RT							 &	001111 \\ \hline
+Desloca Direita					 &	SHR							 &	RD=RS>>RT							 &	010000 \\ \hline
+Load							 &	LOAD						 &	RD=Ram(Imediato)					 &	010001 \\ \hline
+Load Imediato					 &	LOADI						 &	RD=Im22							 	 &	010010 \\ \hline
+Store							 &	STORE						 &	Ram(Imediato)=RS					 &	010011 \\ \hline
+Jump							 &	JUMP						 &	PC=Imediato							 &	010100 \\ \hline
+Branch on equal					 &	BEQ							 &	RD=RS==RT							 &	010101 \\ \hline
+Branch on greater than			 &	BGT							 &	RD=RS>RT							 &	010110 \\ \hline
+Branch on greater than or equal	 &	BGE							 &	RD=RS>=RT							 &	010111 \\ \hline
+Branch on less than				 &	BLT							 &	RD=RS<RT							 &	011000 \\ \hline
+Branch on less than or equal	 &	BLE							 &	RD=RS<=RT							 &	011001 \\ \hline
+Branch on not equal				 &	BNE							 &	RD=RS!=RT							 &	011010 \\ \hline
+Move							 &	MOVE						 &	Ram(Imediato)=RS					 &	011011 \\ \hline
+Entrada							 &	IN							 &	Ram(Imediato) = Input				 &	011100 \\ \hline
+Saída							 &	OUT							 &	RS -> Output						 &	011101 \\ \hline
+Halt							 &	HLT							 &	Parar processamento					 &	011111 \\ \hline
